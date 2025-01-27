@@ -62,32 +62,32 @@ class CollectionMap {
 
     public int addEmployee(Employee emp) {
         if (emp == null) {
-            return 1; // Error: Null entry
+            return 1; 
         }
         if (employeeMap.containsKey(emp.getId())) {
-            return 2; // Error: Duplicate entry
+            return 2;
         }
         employeeMap.put(emp.getId(), emp);
-        return 0; // Success
+        return 0;
     }
 
     public int removeEmployee(int employeeId) {
         if (!employeeMap.containsKey(employeeId)) {
-            return 2; // Error: Employee not found
+            return 2; 
         }
         employeeMap.remove(employeeId);
-        return 0; // Success
+        return 0; 
     }
 
     public Employee findEmployee(int employeeId) {
-        return employeeMap.getOrDefault(employeeId, null); // Return null if not found
+        return employeeMap.getOrDefault(employeeId, null); 
     }
 
     public List<Employee> getEmployeeList() {
         if (employeeMap.isEmpty()) {
-            return null; // Return null if map is empty
+            return null; 
         }
-        return new ArrayList<>(employeeMap.values()); // Return list of employee values
+        return new ArrayList<>(employeeMap.values()); 
     }
 }
 
@@ -101,25 +101,25 @@ public class PS005 {
         CollectionMap collectionMap = new CollectionMap();
 
 
-        System.out.println("Add emp1: " + collectionMap.addEmployee(emp1)); // Should return 0 (success)
-        System.out.println("Add emp2: " + collectionMap.addEmployee(emp2)); // Should return 0 (success)
-        System.out.println("Add emp3: " + collectionMap.addEmployee(emp3)); // Should return 0 (success)
-        System.out.println("Add duplicate emp1: " + collectionMap.addEmployee(emp1)); // Should return 2 (duplicate)
+        System.out.println("Add emp1: " + collectionMap.addEmployee(emp1)); 
+        System.out.println("Add emp2: " + collectionMap.addEmployee(emp2)); 
+        System.out.println("Add emp3: " + collectionMap.addEmployee(emp3)); 
+        System.out.println("Add duplicate emp1: " + collectionMap.addEmployee(emp1)); 
 
         
-        System.out.println("Find emp1: " + collectionMap.findEmployee(1)); // Should return emp1 details
-        System.out.println("Find non-existent emp4: " + collectionMap.findEmployee(4)); // Should return null
+        System.out.println("Find emp1: " + collectionMap.findEmployee(1)); 
+        System.out.println("Find non-existent emp4: " + collectionMap.findEmployee(4)); 
 
 
-        System.out.println("Remove emp2: " + collectionMap.removeEmployee(2)); // Should return 0 (success)
-        System.out.println("Remove non-existent emp4: " + collectionMap.removeEmployee(4)); // Should return 2 (not found)
+        System.out.println("Remove emp2: " + collectionMap.removeEmployee(2)); 
+        System.out.println("Remove non-existent emp4: " + collectionMap.removeEmployee(4));
 
         
         List<Employee> employeeList = collectionMap.getEmployeeList();
         if (employeeList != null) {
             System.out.println("Employee List: ");
             for (Employee emp : employeeList) {
-                System.out.println(emp); // Should print emp1 and emp3
+                System.out.println(emp);
             }
         } else {
             System.out.println("Employee List is empty.");
